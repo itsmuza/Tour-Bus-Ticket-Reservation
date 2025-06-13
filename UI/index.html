@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Bus Reservation System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Bus Reservation Operations</h1>
+        </header>
+
+        <main class="main-content">
+            <section class="action-section">
+                <div class="action-card">
+                    <h2>Add New Bus</h2>
+                    <form id="addBusForm">
+                        <input type="number" id="addBusId" placeholder="Bus ID" required>
+                        <input type="text" id="addDestination" placeholder="Destination" required>
+                        <input type="text" id="addTime" placeholder="Time (e.g., 9:10am)" required>
+                        <input type="number" id="addFare" step="0.01" placeholder="Fare" required>
+                        <button type="submit" class="btn btn-add">Add Bus</button>
+                    </form>
+                    <p id="addBusStatus" class="status-message"></p>
+                </div>
+
+                <div class="action-card">
+                    <h2>Manage Bus</h2>
+                    <form id="manageBusForm">
+                        <input type="number" id="manageBusId" placeholder="Enter Bus ID" required>
+                        <button type="button" id="showBusBtn" class="btn btn-view">Show Details</button>
+                        <button type="button" id="deleteBusBtn" class="btn btn-delete">Delete Bus</button>
+                    </form>
+                    <div id="manageBusDetails" class="bus-details-display">
+                        </div>
+                    <p id="manageBusStatus" class="status-message"></p>
+                </div>
+
+                <div class="action-card">
+                    <h2>Book Ticket</h2>
+                    <form id="bookTicketForm">
+                        <input type="text" id="bookDestination" placeholder="Destination" required>
+                        <input type="text" id="customerName" placeholder="Customer Name" required>
+                        <button type="submit" class="btn btn-book">Book Ticket</button>
+                    </form>
+                    <p id="bookTicketStatus" class="status-message"></p>
+                </div>
+            </section>
+
+            <section class="display-section">
+                <div class="display-card">
+                    <h2>All Buses</h2>
+                    <button id="loadAllBuses" class="btn btn-refresh">Refresh List</button>
+                    <div class="table-container">
+                        <table id="allBusesTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Destination</th>
+                                    <th>Time</th>
+                                    <th>Seats</th>
+                                    <th>Booked</th>
+                                    <th>Fare</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                </tbody>
+                        </table>
+                    </div>
+                    <p id="displayAllBusesStatus" class="status-message"></p>
+                </div>
+
+                <div class="display-card">
+                    <h2>Booked Tickets</h2>
+                    <button id="loadAllTickets" class="btn btn-refresh">Refresh List</button>
+                    <div class="table-container">
+                        <table id="allTicketsTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Bus ID</th>
+                                    <th>Destination</th>
+                                    <th>Time</th>
+                                    <th>Fare</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                </tbody>
+                        </table>
+                    </div>
+                    <p id="displayTicketsStatus" class="status-message"></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
